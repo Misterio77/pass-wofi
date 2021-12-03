@@ -1,4 +1,4 @@
-cd ~/.local/share/password-store
+cd "${PASSWORD_STORE_DIR:-$HOME/.password-store}"
 
 focused="$(swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.focused==true)')"
 app_id=$(jq -r '.app_id' <<< "$focused")
